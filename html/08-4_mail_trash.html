@@ -15,7 +15,8 @@
 <body>
 
   <!-- ==========================================
-       참고 화면: 메일함 "보낸 메일함" 탭 - 발신 메일이 있는 상태
+       참고 화면: 메일함 "휴지통" 탭 - 본인이 삭제한 받은/보낸 메일이 있는 상태
+       (송/수신 각각 개별 삭제이므로 상대방 메일함에는 영향 없음)
        ========================================== -->
   <div class="app-wrapper" id="appWrapper"><header class="header">
       <div class="header-left">
@@ -81,15 +82,14 @@
              ========================================== -->
         <div class="card">
           <div class="messenger-container">
-            <!-- Left Side Tabs -->
             <div class="messenger-menu">
               <div class="messenger-menu-item" id="mailTab-received">
                 <a href="08_mail.html" style="color:inherit; text-decoration:none;"><i class="fa-solid fa-inbox"></i> 받은 메일함 <span class="badge badge-primary" id="receivedCountBadge" style="margin-left: auto; display: inline-flex;">4</span></a>
               </div>
-              <div class="messenger-menu-item active" id="mailTab-sent">
+              <div class="messenger-menu-item" id="mailTab-sent">
                 <a href="08-1_mail_sent.html" style="color:inherit; text-decoration:none;"><i class="fa-solid fa-paper-plane"></i> 보낸 메일함</a>
               </div>
-              <div class="messenger-menu-item" id="mailTab-trash">
+              <div class="messenger-menu-item active" id="mailTab-trash">
                 <a href="08-4_mail_trash.html" style="color:inherit; text-decoration:none;"><i class="fa-solid fa-trash-can"></i> 휴지통</a>
               </div>
               <div class="messenger-menu-item" id="mailTab-write" style="margin-top: 1rem; background-color: var(--color-primary); color:#fff;">
@@ -97,50 +97,39 @@
               </div>
             </div>
 
-            <!-- Right Side Mailbox views -->
             <div style="overflow-y:auto; padding-left: 1rem;">
-
-              <!-- Sent List View (데이터가 있는 상태) -->
               <div id="mailListContainer">
-                <h3 id="mailViewTitle" style="margin-bottom: 1rem;">보낸 메일함</h3>
+                <h3 id="mailViewTitle" style="margin-bottom: 1rem;">휴지통</h3>
                 <div class="table-container">
                   <table class="table">
                     <thead>
                       <tr id="mailTableHeader">
-      <th style="width: 40px;"></th>
-      <th>받는 사람</th>
-      <th>제목</th>
-      <th>발신 시각</th>
-      <th style="width: 40px;"></th>
-    </tr>
+                        <th style="width: 70px;">구분</th>
+                        <th>상대방</th>
+                        <th>제목</th>
+                        <th>날짜</th>
+                        <th style="width: 90px;"></th>
+                      </tr>
                     </thead>
                     <tbody id="mailTableBody">
-        <tr class="clickable" onclick="viewMailDetail(9)">
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-regular fa-star" style="color:var(--text-muted);"></i></button></td>
-          <td><strong>김영훈 부서장</strong></td>
-          <td>지출결의서 재상신 안내드립니다 <i class="fa-solid fa-paperclip" style="color:var(--text-muted); font-size:0.75rem;"></i></td>
-          <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-30 15:02</td>
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-solid fa-trash-can" style="color:var(--text-muted);"></i></button></td>
-        </tr>
-        <tr class="clickable" onclick="viewMailDetail(3)">
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-regular fa-star" style="color:var(--text-muted);"></i></button></td>
-          <td><strong>김우주 팀장</strong></td>
-          <td>모바일 캘린더 라이브러리 연동 검토 건</td>
-          <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-29 17:30</td>
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-solid fa-trash-can" style="color:var(--text-muted);"></i></button></td>
-        </tr>
-        <tr class="clickable" onclick="viewMailDetail(14)">
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-regular fa-star" style="color:var(--text-muted);"></i></button></td>
+        <tr>
+          <td><span class="badge badge-primary">받음</span></td>
           <td><strong>이다니엘 팀장</strong></td>
-          <td>연차 사용 계획서 제출드립니다 <i class="fa-solid fa-paperclip" style="color:var(--text-muted); font-size:0.75rem;"></i></td>
-          <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-15 09:20</td>
-          <td><button type="button" class="icon-btn" style="width:26px; height:26px; border:none;"><i class="fa-solid fa-trash-can" style="color:var(--text-muted);"></i></button></td>
+          <td>신규 입사자 온보딩 서류 제출 안내</td>
+          <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-28</td>
+          <td><button type="button" class="btn btn-secondary btn-sm">복원</button></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-muted">보냄</span></td>
+          <td><strong>이다니엘 팀장</strong></td>
+          <td>연차 사용 계획서 제출드립니다</td>
+          <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-15</td>
+          <td><button type="button" class="btn btn-secondary btn-sm">복원</button></td>
         </tr>
       </tbody>
                   </table>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

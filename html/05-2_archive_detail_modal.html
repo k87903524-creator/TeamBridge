@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="ko" data-theme="light"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>조직도 - 통합 사내 그룹웨어</title>
-  <meta name="description" content="사내 그룹웨어 시스템 - 조직도">
+  <title>자료실 - 통합 사내 그룹웨어</title>
+  <meta name="description" content="사내 그룹웨어 시스템 - 자료실">
 
   <!-- 구글 폰트 및 폰트어썸 아이콘 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,8 @@
 <body>
 
   <!-- ==========================================
-       참고 화면: 조직도 목록에서 임직원 한 명을 클릭했을 때 뜨는
-       "임직원 정보" 모달 오픈 상태 (본인이 아닌 타인 조회 - 채팅하기 버튼 노출)
+       참고 화면: 자료실 목록에서 게시글 한 건을 클릭했을 때 뜨는
+       "게시글 상세" 모달 오픈 상태 (첨부파일 2개짜리 게시글, 작성자 본인 로그인 - 삭제 버튼 노출)
        ========================================== -->
   <div class="app-wrapper" id="appWrapper"><header class="header">
       <div class="header-left">
@@ -52,10 +52,10 @@
         <li class="sidebar-item sub" id="menu-calendar"><a href="03_calendar.html"><i class="fa-solid fa-calendar-days"></i> 일정 캘린더</a></li>
         <li class="sidebar-item sub" id="menu-approval"><a href="06_approval.html"><i class="fa-solid fa-signature"></i> 전자결재</a></li>
         <li class="sidebar-item sub" id="menu-notice"><a href="04_notice.html"><i class="fa-solid fa-bullhorn"></i> 공지사항</a></li>
-        <li class="sidebar-item sub" id="menu-archive"><a href="05_archive.html"><i class="fa-solid fa-file-shield"></i> 자료실</a></li>
+        <li class="sidebar-item sub active" id="menu-archive"><a href="05_archive.html"><i class="fa-solid fa-file-shield"></i> 자료실</a></li>
 
         <li class="sidebar-group-label">조직 · 소통</li>
-        <li class="sidebar-item sub active" id="menu-org"><a href="07_org.html"><i class="fa-solid fa-sitemap"></i> 조직도</a></li>
+        <li class="sidebar-item sub" id="menu-org"><a href="07_org.html"><i class="fa-solid fa-sitemap"></i> 조직도</a></li>
         <li class="sidebar-item sub" id="menu-chat"><a href="13_chat.html"><i class="fa-solid fa-comment-dots"></i> 실시간 채팅</a></li>
 
         <li class="sidebar-group-label">근태관리</li>
@@ -73,46 +73,44 @@
       <main class="view-content">
 
         <!-- ==========================================
-             화면: 조직도
+             화면: 자료실
              ========================================== -->
-        <div class="org-container">
-          <!-- 좌측 조직 트리 -->
-          <div class="org-tree">
-            <h3 style="font-size: 1rem; margin-bottom: 1rem;">사내 조직 현황</h3>
-            <ul style="list-style:none;">
-              <li><a class="org-node active" id="org-all" href="07_org.html"><i class="fa-solid fa-building"></i> 주식회사 코퍼레이션</a></li>
-              <li style="margin-left: 0.75rem;"><a class="org-node" id="org-인사팀" href="07_org.html"><i class="fa-solid fa-users"></i> 인사팀</a></li>
-              <li style="margin-left: 0.75rem;"><a class="org-node" id="org-기획팀" href="07_org.html"><i class="fa-solid fa-compass"></i> 기획팀</a></li>
-              <li style="margin-left: 0.75rem;"><a class="org-node" id="org-개발팀" href="07_org.html"><i class="fa-solid fa-code"></i> 개발팀</a></li>
-              <li style="margin-left: 0.75rem;"><a class="org-node" id="org-디자인팀" href="07_org.html"><i class="fa-solid fa-palette"></i> 디자인팀</a></li>
-              <li style="margin-left: 0.75rem;"><a class="org-node" id="org-총무팀" href="07_org.html"><i class="fa-solid fa-briefcase"></i> 총무팀</a></li>
-            </ul>
+        <div class="grid-12">
+          <div class="col-3">
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="margin-bottom: 1rem; font-size: 0.95rem;">자료 카테고리</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.25rem;">
+                <li><a class="org-node" id="folder-public" href="05_archive.html"><i class="fa-solid fa-folder-open"></i> 전사 공용 자료실</a></li>
+                <li><a class="org-node active" id="folder-dept" href="05_archive.html"><i class="fa-solid fa-folder"></i> 부서 제한 자료실</a></li>
+              </ul>
+            </div>
           </div>
-
-          <!-- 우측 구성원 그리드 -->
-          <div class="org-members">
-            <h3 style="margin-bottom: 1rem;" id="orgTitle">임직원 목록 (전체)</h3>
-            <div class="table-container">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>사진</th>
-                    <th>이름</th>
-                    <th>부서</th>
-                    <th>직급</th>
-                    <th>상태</th>
-                  </tr>
-                </thead>
-                <tbody id="orgMemberTableBody">
-    <tr class="clickable active" onclick="viewOrgMemberDetail('20260010')">
-      <td><div class="user-avatar" style="width:24px; height:24px; font-size:0.7rem;">김</div></td>
-      <td><strong>김영훈</strong></td>
-      <td>기획팀</td>
-      <td><span class="badge badge-primary">부서장</span></td>
-      <td><span class="badge badge-muted">퇴근</span></td>
+          <div class="col-9">
+            <div class="card">
+              <div class="card-header">
+                <h3 id="archiveFolderTitle">개발팀 전용 자료실</h3>
+                <a class="btn btn-primary btn-sm" href="05-1_archive_upload_modal.html"><i class="fa-solid fa-pen"></i> 글쓰기</a>
+              </div>
+              <div class="table-container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>제목</th>
+                      <th style="text-align: center; width: 90px;">첨부</th>
+                      <th>등록자</th>
+                      <th>등록일</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fileTableBody">
+    <tr class="clickable active" onclick="viewArchiveDetail(6)">
+      <td><i class="fa-solid fa-file-lines" style="color:var(--color-primary); margin-right:0.5rem;"></i> <strong>로그인 화면 리뉴얼 디자인 시안 및 UI 가이드</strong></td>
+      <td style="text-align:center;">2개</td>
+      <td>정진국</td>
+      <td style="font-family:'Fira Code'; font-size:0.8rem;">2026-06-27</td>
     </tr>
   </tbody>
-              </table>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -126,27 +124,30 @@
        ========================================== -->
   <div class="modal-overlay active" id="modalOverlay">
 
-    <!-- 조직도 구성원 정보 모달 (열림 상태, 본인이 아닌 타 부서장 조회 예시) -->
-    <div class="modal-content" id="modal-org-member" style="display:block;">
+    <!-- 자료실 게시글 상세 모달 (열림 상태 - 첨부파일 2개, 작성자 본인 - 삭제 버튼 노출) -->
+    <div class="modal-content" id="modal-archive-detail" style="display:block;">
       <div class="modal-header">
-        <h3 id="mOrgName">김영훈 부서장</h3>
-        <a class="icon-btn" href="07_org.html"><i class="fa-solid fa-xmark"></i></a>
+        <h3 id="mArchiveTitle">로그인 화면 리뉴얼 디자인 시안 및 UI 가이드</h3>
+        <a class="icon-btn" href="05_archive.html"><i class="fa-solid fa-xmark"></i></a>
       </div>
       <div class="modal-body">
-        <div style="text-align:center; margin-bottom:1rem;">
-          <div class="profile-avatar-large" style="width:90px; height:90px; font-size:2rem;" id="mOrgAvatar">김</div>
-          <div id="mOrgDept" style="color:var(--text-secondary); font-size:0.9rem;">기획팀 · 사번 20260010</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); display:flex; justify-content:space-between; margin-bottom: 1rem;">
+          <span>등록자: <strong id="mArchiveWriter" style="color:var(--text-secondary);">정진국</strong></span>
+          <span>등록일: <strong id="mArchiveDate" style="color:var(--text-secondary);">2026-06-27</strong></span>
         </div>
-        <div style="background-color:var(--bg-tertiary); padding:1rem; border-radius:8px; border:1px solid var(--border-color); font-size:0.85rem;">
-          <div style="margin-bottom:0.35rem;">연락처: <strong id="mOrgPhone">010-1111-2222</strong></div>
-          <div style="margin-bottom:0.35rem;">이메일: <strong id="mOrgEmail">ceo@corporation.com</strong></div>
-          <div>상태: <strong id="mOrgStatus">재직 중</strong></div>
+        <div id="mArchiveContent" style="font-size: 0.95rem; white-space: pre-wrap; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">로그인 화면 리뉴얼 디자인 시안 v2와, 함께 참고할 사내 공통 UI 컴포넌트 가이드를 같이 첨부합니다.
+화면 작업 시 참고 부탁드려요.</div>
+        <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.5rem;">첨부파일</div>
+          <div id="mArchiveFileList">
+            <button type="button" class="btn btn-secondary btn-sm" style="margin: 0.25rem 0.5rem 0 0;"><i class="fa-solid fa-download"></i> 로그인화면_디자인_시안_v2.png (1.1 MB)</button>
+            <button type="button" class="btn btn-secondary btn-sm" style="margin: 0.25rem 0.5rem 0 0;"><i class="fa-solid fa-download"></i> UI_컴포넌트_공통_가이드.pdf (2.0 MB)</button>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <!-- 조회 대상이 본인이 아닐 때만 노출되는 버튼 (본인 조회 시에는 숨김) -->
-        <a class="btn btn-secondary" id="mOrgChatBtn" href="13_chat.html"><i class="fa-solid fa-comment-dots"></i> 채팅하기</a>
-        <a class="btn btn-secondary" href="07_org.html">닫기</a>
+        <a class="btn btn-danger" id="mArchiveDeleteBtn" href="05_archive.html" style="margin-right:auto;">삭제</a>
+        <a class="btn btn-secondary" href="05_archive.html">닫기</a>
       </div>
     </div>
 

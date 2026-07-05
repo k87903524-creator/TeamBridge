@@ -4,7 +4,7 @@
   <title>대시보드 - 통합 사내 그룹웨어</title>
   <meta name="description" content="사내 그룹웨어 시스템 - 대시보드">
 
-  <!-- Google Fonts & FontAwesome Icons -->
+  <!-- 구글 폰트 및 폰트어썸 아이콘 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
@@ -26,9 +26,9 @@
         </a>      </div>
 
       <div class="header-right">
-        <a class="icon-btn" href="08_mail.html" title="받은 메일함">
-          <i class="fa-solid fa-envelope"></i>
-          <span class="badge" id="headerMsgBadge" style="display: flex;">4</span>
+        <a class="icon-btn" href="13_chat.html" title="실시간 채팅">
+          <i class="fa-solid fa-comment-dots"></i>
+          <span class="badge" id="headerChatBadge" style="display: none;">0</span>
         </a>
         <a class="user-dropdown" href="09_mypage.html">
           <div class="user-avatar" id="headerAvatar">홍</div>
@@ -43,7 +43,7 @@
       </div>
     </header>
 
-    <!-- Main Navigation Body -->
+    <!-- 메인 내비게이션 영역 -->
     <div class="main-body" id="mainBody"><aside class="sidebar">
       <ul class="sidebar-menu">
         <li class="sidebar-item active" id="menu-dashboard"><a href="02_main.html"><i class="fa-solid fa-chart-line"></i> 대시보드</a></li>
@@ -56,7 +56,7 @@
 
         <li class="sidebar-group-label">조직 · 소통</li>
         <li class="sidebar-item sub" id="menu-org"><a href="07_org.html"><i class="fa-solid fa-sitemap"></i> 조직도</a></li>
-        <li class="sidebar-item sub" id="menu-mail"><a href="08_mail.html"><i class="fa-solid fa-paper-plane"></i> 메일함</a></li>
+        <li class="sidebar-item sub" id="menu-chat"><a href="13_chat.html"><i class="fa-solid fa-comment-dots"></i> 실시간 채팅</a></li>
 
         <li class="sidebar-group-label">근태관리</li>
         <li class="sidebar-item sub" id="menu-attendance"><a href="10_attendance.html"><i class="fa-solid fa-clock"></i> 출결 현황</a></li>
@@ -69,11 +69,11 @@
       </ul>
     </aside>
 
-      <!-- Center Dynamic View Content Area -->
+      <!-- 중앙 동적 화면 콘텐츠 영역 -->
       <main class="view-content">
 
         <!-- ==========================================
-             SCREEN: DASHBOARD
+             화면: 대시보드
              ========================================== -->
         <div style="margin-bottom: 1.25rem;">
           <h2 style="font-size: 1.35rem;">안녕하세요, <span id="dashGreetingName">홍길동 사원</span>님! 👋</h2>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="grid-12">
-          <!-- Left Profile Widget -->
+          <!-- 좌측 프로필 위젯 -->
           <div class="col-3">
             <div class="card profile-card-large">
               <div class="profile-avatar-large" id="dashAvatar">홍</div>
@@ -100,13 +100,13 @@
                   <span class="commute-val" id="dashCheckinTime">-</span>
                 </div>
                 <div class="commute-row">
-                  <span>오늘 근무</span>
-                  <span class="commute-val" id="dashWorkTimer">00:00:00</span>
+                  <span>퇴근 시각</span>
+                  <span class="commute-val" id="dashWorkTimer">-</span>
                 </div>
               </div>
             </div>
 
-            <!-- Monthly Attendance Summary -->
+            <!-- 월간 근태 요약 -->
             <div class="card" style="padding: 1.25rem; text-align: center; margin-top: 0.25rem;">
               <h4 class="card-title" style="font-size: 0.9rem; justify-content: center; margin-bottom: 1rem;">
                 <i class="fa-solid fa-calendar-days" style="color: var(--color-primary);"></i> 근태 현황 (이번 달)
@@ -126,10 +126,10 @@
             </div>
           </div>
 
-          <!-- Center Widgets -->
+          <!-- 중앙 위젯 -->
           <div class="col-6" style="display: flex; flex-direction: column; gap: 0.25rem;">
 
-            <!-- Today's Schedule -->
+            <!-- 오늘 일정 -->
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title"><i class="fa-solid fa-calendar-check" style="color: var(--color-accent);"></i> 오늘 일정</h4>
@@ -143,7 +143,7 @@
     </div>
             </div>
 
-            <!-- Recent Notices -->
+            <!-- 최근 공지사항 -->
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title"><i class="fa-solid fa-bullhorn" style="color: var(--color-primary);"></i> 사내 최신 공지사항</h4>
@@ -186,7 +186,7 @@
               </div>
             </div>
 
-            <!-- Pending Approvals summary -->
+            <!-- 결재 대기 현황 요약 -->
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title"><i class="fa-solid fa-signature" style="color: var(--color-accent);"></i> 전자결재 진행 현황</h4>
@@ -226,7 +226,7 @@
               </div>
             </div>
 
-            <!-- Recent Files -->
+            <!-- 최근 파일 -->
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title"><i class="fa-solid fa-folder-open" style="color: var(--color-primary);"></i> 최근 자료</h4>
@@ -255,9 +255,9 @@
 
           </div>
 
-          <!-- Right Widgets -->
+          <!-- 우측 위젯 -->
           <div class="col-3" style="display: flex; flex-direction: column; gap: 0.25rem;">
-            <!-- Weather Widget -->
+            <!-- 날씨 위젯 -->
             <div class="card" style="display: flex; align-items: center; gap: 1rem; padding: 1.15rem 1.5rem;">
               <i class="fa-solid fa-cloud-sun-rain" style="font-size: 2.25rem; color: var(--color-warning);"></i>
               <div>
@@ -267,7 +267,7 @@
               </div>
             </div>
 
-            <!-- Mini Calendar -->
+            <!-- 미니 캘린더 -->
             <div class="card" style="padding: 1.25rem;">
               <div class="card-header" style="margin-bottom: 0.75rem; padding-bottom: 0.5rem;">
                 <h4 class="card-title" style="font-size: 0.9rem;">2026년 6월</h4>
@@ -285,7 +285,7 @@
   <div class="mini-cal-day other-month">31</div><div class="mini-cal-day">1</div><div class="mini-cal-day">2</div><div class="mini-cal-day has-event">3</div><div class="mini-cal-day">4</div><div class="mini-cal-day">5</div><div class="mini-cal-day">6</div><div class="mini-cal-day">7</div><div class="mini-cal-day">8</div><div class="mini-cal-day">9</div><div class="mini-cal-day has-event">10</div><div class="mini-cal-day">11</div><div class="mini-cal-day">12</div><div class="mini-cal-day">13</div><div class="mini-cal-day">14</div><div class="mini-cal-day">15</div><div class="mini-cal-day">16</div><div class="mini-cal-day">17</div><div class="mini-cal-day">18</div><div class="mini-cal-day has-event">19</div><div class="mini-cal-day">20</div><div class="mini-cal-day">21</div><div class="mini-cal-day">22</div><div class="mini-cal-day">23</div><div class="mini-cal-day">24</div><div class="mini-cal-day has-event">25</div><div class="mini-cal-day">26</div><div class="mini-cal-day">27</div><div class="mini-cal-day">28</div><div class="mini-cal-day">29</div><div class="mini-cal-day today has-event">30</div><div class="mini-cal-day other-month">1</div><div class="mini-cal-day other-month">2</div><div class="mini-cal-day other-month">3</div><div class="mini-cal-day other-month">4</div></div></div>
             </div>
 
-            <!-- Birthdays -->
+            <!-- 생일자 -->
             <div class="card" style="padding: 1.25rem;">
               <div class="card-header" style="margin-bottom: 0.75rem; padding-bottom: 0.5rem;">
                 <h4 class="card-title" style="font-size: 0.9rem;"><i class="fa-solid fa-cake-candles" style="color: var(--color-accent);"></i> 이달의 생일자</h4>
@@ -316,11 +316,11 @@
   </div>
 
   <!-- ==========================================
-       DYNAMIC MODALS (used on this page) - OPEN 상태 참고
+       동적 모달 (이 페이지에서 사용) - OPEN 상태 참고
        ========================================== -->
   <div class="modal-overlay active" id="modalOverlay">
 
-    <!-- Notice Detail Modal (열림 상태) -->
+    <!-- 공지사항 상세 모달 (열림 상태) -->
     <div class="modal-content" id="modal-notice-detail" style="display:block;">
       <div class="modal-header">
         <h3 id="mNoticeTitle">[채용] 개발팀 경력직 채용 공고 안내 (내부 추천 가능)</h3>
@@ -341,7 +341,7 @@
 
   </div>
 
-  <!-- Toast Notifications Container -->
+  <!-- 토스트 알림 컨테이너 -->
   <div id="toast-container" class="toast-container"></div>
 
 

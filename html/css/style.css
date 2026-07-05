@@ -1,5 +1,5 @@
     /* -----------------------------------------------------------
-       1. Design Tokens & Themes
+       1. 디자인 토큰 및 테마
     ----------------------------------------------------------- */
     :root[data-theme="light"] {
       --bg-primary: #f8fafc;
@@ -33,7 +33,7 @@
     }
 
     /* -----------------------------------------------------------
-       2. Global Reset & Layout
+       2. 전역 리셋 및 레이아웃
     ----------------------------------------------------------- */
     * {
       box-sizing: border-box;
@@ -60,7 +60,7 @@
       color: var(--color-secondary);
     }
 
-    /* Scrollbar */
+    /* 스크롤바 */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -76,7 +76,7 @@
       background: var(--text-muted);
     }
 
-    /* Layout Structure */
+    /* 레이아웃 구조 */
     .app-wrapper {
       display: flex;
       flex-direction: column;
@@ -85,7 +85,7 @@
     }
 
     /* -----------------------------------------------------------
-       3. Header & Navigation
+       3. 헤더 및 내비게이션
     ----------------------------------------------------------- */
     .header {
       height: 64px;
@@ -129,7 +129,7 @@
       justify-content: center;
       font-size: 1rem;
       box-shadow: var(--shadow-glow);
-      -webkit-text-fill-color: #fff; /* Reset logo-box text fill */
+      -webkit-text-fill-color: #fff; /* logo-box 텍스트 채우기 색 초기화 */
     }
 
     .role-indicator {
@@ -252,7 +252,7 @@
     }
 
     /* -----------------------------------------------------------
-       4. Sidebar & Routing Layout
+       4. 사이드바 및 라우팅 레이아웃
     ----------------------------------------------------------- */
     .main-body {
       display: flex;
@@ -317,7 +317,7 @@
       font-size: 0.85rem;
     }
 
-    /* View Content Container */
+    /* 화면 콘텐츠 컨테이너 */
     .view-content {
       flex: 1;
       height: 100%;
@@ -343,7 +343,7 @@
     }
 
     /* -----------------------------------------------------------
-       5. Reusable UI Components
+       5. 재사용 UI 컴포넌트
     ----------------------------------------------------------- */
     .card {
       background-color: var(--bg-secondary);
@@ -380,7 +380,7 @@
     .col-8 { grid-column: span 8; }
     .col-9 { grid-column: span 9; }
 
-    /* Tables */
+    /* 테이블 */
     .table-container {
       overflow-x: auto;
       border: 1px solid var(--border-color);
@@ -420,7 +420,7 @@
       color: var(--text-primary);
     }
 
-    /* Badges & Flags */
+    /* 배지 및 플래그 */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -435,7 +435,7 @@
     .badge-danger { background-color: rgba(248, 113, 113, 0.15); color: var(--color-danger); }
     .badge-muted { background-color: var(--bg-tertiary); color: var(--text-secondary); }
 
-    /* Forms */
+    /* 폼 */
     .form-group {
       margin-bottom: 1.25rem;
     }
@@ -513,10 +513,10 @@
     }
 
     /* -----------------------------------------------------------
-       6. Screen Specific Styling
+       6. 화면별 스타일
     ----------------------------------------------------------- */
 
-    /* LOGIN SCREEN */
+    /* 로그인 화면 */
     .login-wrapper {
       position: fixed;
       top: 0;
@@ -542,7 +542,7 @@
       box-shadow: var(--shadow-lg), var(--shadow-glow);
     }
 
-    /* DASHBOARD */
+    /* 대시보드 */
     .profile-card-large {
       text-align: center;
       padding-top: 2rem;
@@ -612,7 +612,7 @@
       font-family: 'Fira Code', monospace;
     }
 
-    /* ORGANIZATIONAL CHART */
+    /* 조직도 */
     .org-container {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -660,7 +660,7 @@
       overflow-y: auto;
     }
 
-    /* MESSENGER */
+    /* 메신저 */
     .messenger-container {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -689,7 +689,7 @@
       color: var(--color-primary);
     }
 
-    /* CALENDAR */
+    /* 캘린더 */
     .calendar-wrapper {
       display: flex;
       flex-direction: column;
@@ -748,7 +748,7 @@
       font-weight: 600;
     }
 
-    /* Dashboard mini calendar widget */
+    /* 대시보드 미니 캘린더 위젯 */
     .mini-cal-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -796,7 +796,7 @@
       background-color: #fff;
     }
 
-    /* ELECTRONIC APPROVAL FLOW */
+    /* 전자결재 흐름 */
     .flow-stepper {
       display: flex;
       align-items: center;
@@ -827,8 +827,319 @@
       color: var(--text-muted);
     }
 
+    /* 실시간 채팅 */
+    .chat-container {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      height: 640px;
+    }
+    .chat-sidebar {
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      padding-right: 1rem;
+      min-height: 0;
+    }
+    .chat-sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .chat-filter-tabs {
+      display: flex;
+      gap: 0.4rem;
+      margin: 0.75rem 0;
+    }
+    .chat-filter-tab {
+      flex: 1;
+      text-align: center;
+      padding: 0.4rem 0;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      background-color: var(--bg-tertiary);
+      color: var(--text-secondary);
+    }
+    .chat-filter-tab.active {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+    .chat-room-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .chat-room-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.6rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .chat-room-item:hover {
+      background-color: var(--bg-tertiary);
+    }
+    .chat-room-item.active {
+      background-color: var(--bg-accent);
+    }
+    .chat-room-avatar {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .chat-room-avatar.group {
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-success));
+    }
+    .chat-online-dot {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--color-success);
+      border: 2px solid var(--bg-secondary);
+    }
+    .chat-room-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .chat-room-name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .chat-room-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chat-room-time {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .chat-room-preview-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .chat-room-preview {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chat-room-unread {
+      flex-shrink: 0;
+      background-color: var(--color-primary);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0.3rem;
+    }
+
+    .chat-main {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding-left: 1.25rem;
+    }
+    .chat-thread-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+    .chat-thread-who {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .chat-thread-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding-right: 0.25rem;
+    }
+    .chat-date-divider {
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+    .chat-date-divider span {
+      background-color: var(--bg-tertiary);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+    }
+    .chat-system-message {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin: 0.25rem 0;
+    }
+    .chat-row {
+      display: flex;
+      gap: 0.6rem;
+      max-width: 72%;
+    }
+    .chat-row.out {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-row .chat-room-avatar {
+      width: 32px;
+      height: 32px;
+      font-size: 0.75rem;
+    }
+    .chat-bubble-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .chat-sender-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .chat-bubble-meta {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+    .chat-row.out .chat-bubble-meta {
+      flex-direction: row-reverse;
+    }
+    .chat-bubble {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 0.55rem 0.85rem;
+      border-radius: 14px 14px 14px 2px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .chat-row.out .chat-bubble {
+      background-color: var(--color-primary);
+      color: #fff;
+      border-radius: 14px 14px 2px 14px;
+    }
+    .chat-bubble-file {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      padding: 0.6rem 0.85rem;
+      border-radius: 14px 14px 14px 2px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .chat-row.out .chat-bubble-file {
+      background-color: rgba(var(--color-primary-rgb), 0.1);
+      border-color: var(--border-accent);
+      border-radius: 14px 14px 2px 14px;
+    }
+    .chat-bubble-time {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .chat-bubble-read {
+      font-size: 0.65rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .chat-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background-color: var(--bg-tertiary);
+      padding: 0.6rem 0.9rem;
+      border-radius: 14px 14px 14px 2px;
+    }
+    .chat-typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--text-muted);
+      animation: chatTypingBounce 1.2s infinite ease-in-out;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes chatTypingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+    .chat-input-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .chat-input-bar input[type="text"] {
+      flex: 1;
+    }
+    .chat-send-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .chat-send-btn:hover {
+      background-color: var(--color-primary-hover);
+    }
+
     /* -----------------------------------------------------------
-       7. Modal overlay
+       7. 모달 오버레이
     ----------------------------------------------------------- */
     .modal-overlay {
       position: fixed;
@@ -882,7 +1193,7 @@
       gap: 0.5rem;
     }
 
-    /* Toast Alert */
+    /* 토스트 알림 */
     .toast-container {
       position: fixed;
       bottom: 24px;

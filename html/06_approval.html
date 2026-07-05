@@ -4,7 +4,7 @@
   <title>전자결재 - 통합 사내 그룹웨어</title>
   <meta name="description" content="사내 그룹웨어 시스템 - 전자결재">
 
-  <!-- Google Fonts & FontAwesome Icons -->
+  <!-- 구글 폰트 및 폰트어썸 아이콘 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
 <body>
 
   <!-- ==========================================
-       CORE APPLICATION WRAPPER
-       (header/sidebar injected by common.js initPage())
+       핵심 애플리케이션 래퍼
+       (헤더/사이드바는 common.js의 initPage()에서 주입됨)
        ========================================== -->
   <div class="app-wrapper" id="appWrapper"><header class="header">
       <div class="header-left">
@@ -26,10 +26,6 @@
         </a>      </div>
 
       <div class="header-right">
-        <button class="icon-btn" onclick="navigateTo('mail')" title="받은 메일함">
-          <i class="fa-solid fa-envelope"></i>
-          <span class="badge" id="headerMsgBadge" style="display: flex;">4</span>
-        </button>
         <button class="icon-btn" onclick="navigateTo('chat')" title="실시간 채팅">
           <i class="fa-solid fa-comment-dots"></i>
           <span class="badge" id="headerChatBadge" style="display: none;">0</span>
@@ -47,7 +43,7 @@
       </div>
     </header>
 
-    <!-- Main Navigation Body -->
+    <!-- 메인 내비게이션 영역 -->
     <div class="main-body" id="mainBody"><aside class="sidebar">
       <ul class="sidebar-menu">
         <li class="sidebar-item" id="menu-dashboard"><a href="02_main.html"><i class="fa-solid fa-chart-line"></i> 대시보드</a></li>
@@ -60,7 +56,6 @@
 
         <li class="sidebar-group-label">조직 · 소통</li>
         <li class="sidebar-item sub" id="menu-org"><a href="07_org.html"><i class="fa-solid fa-sitemap"></i> 조직도</a></li>
-        <li class="sidebar-item sub" id="menu-mail"><a href="08_mail.html"><i class="fa-solid fa-paper-plane"></i> 메일함</a></li>
         <li class="sidebar-item sub" id="menu-chat"><a href="13_chat.html"><i class="fa-solid fa-comment-dots"></i> 실시간 채팅</a></li>
 
         <li class="sidebar-group-label">근태관리</li>
@@ -74,15 +69,15 @@
       </ul>
     </aside>
 
-      <!-- Center Dynamic View Content Area -->
+      <!-- 중앙 동적 화면 콘텐츠 영역 -->
       <main class="view-content">
 
         <!-- ==========================================
-             SCREEN: APPROVAL
+             화면: 전자결재
              ========================================== -->
         <div class="grid-12">
 
-          <!-- Left Submenu tabs -->
+          <!-- 좌측 서브메뉴 탭 -->
           <div class="col-3">
             <div class="card" style="padding: 1.25rem;">
               <h4 style="margin-bottom: 1rem; font-size: 0.95rem;">전자결재 메뉴</h4>
@@ -95,10 +90,10 @@
             </div>
           </div>
 
-          <!-- Right Content boxes -->
+          <!-- 우측 콘텐츠 박스 -->
           <div class="col-9">
 
-            <!-- Tab View: Write Approval -->
+            <!-- 탭 화면: 결재 기안 -->
             <div id="approval-view-write" class="approval-tab-content">
               <div class="card">
                 <h3 style="margin-bottom: 1rem;">새 결재 상신</h3>
@@ -120,14 +115,14 @@
                   </div>
                 </div>
 
-                <!-- Dynamic Approval Form Container -->
+                <!-- 동적 결재 양식 컨테이너 -->
                 <div id="approvalFormContainer" style="display:none; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-                  <!-- Rendered by JS -->
+                  <!-- JS로 렌더링됨 -->
                 </div>
               </div>
             </div>
 
-            <!-- Tab View: Inbox -->
+            <!-- 탭 화면: 수신함 -->
             <div id="approval-view-inbox" class="approval-tab-content" style="display:none;">
               <div class="card">
                 <h3 style="margin-bottom: 1rem;">결재 수신함 (받은 결재)</h3>
@@ -144,14 +139,14 @@
                       </tr>
                     </thead>
                     <tbody id="inboxTableBody">
-                      <!-- Rendered by JS -->
+                      <!-- JS로 렌더링됨 -->
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
 
-            <!-- Tab View: Outbox -->
+            <!-- 탭 화면: 발신함 -->
             <div id="approval-view-outbox" class="approval-tab-content" style="display:none;">
               <div class="card">
                 <h3 style="margin-bottom: 1rem;">보낸 기안함 (내가 올린 결재)</h3>
@@ -167,14 +162,14 @@
                       </tr>
                     </thead>
                     <tbody id="outboxTableBody">
-                      <!-- Rendered by JS -->
+                      <!-- JS로 렌더링됨 -->
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
 
-            <!-- Tab View: Reference -->
+            <!-- 탭 화면: 참조 -->
             <div id="approval-view-ref" class="approval-tab-content" style="display:none;">
               <div class="card">
                 <h3 style="margin-bottom: 1rem;">참조 및 공유 문서함</h3>
@@ -191,7 +186,7 @@
                       </tr>
                     </thead>
                     <tbody id="refTableBody">
-                      <!-- Rendered by JS -->
+                      <!-- JS로 렌더링됨 -->
                     </tbody>
                   </table>
                 </div>
@@ -206,11 +201,11 @@
   </div>
 
   <!-- ==========================================
-       DYNAMIC MODALS (used on this page)
+       동적 모달 (이 페이지에서 사용)
        ========================================== -->
   <div class="modal-overlay" id="modalOverlay">
 
-    <!-- Document Detail View (Approval Detail) -->
+    <!-- 문서 상세 화면 (결재 상세) -->
     <div class="modal-content" id="modal-approval-detail" style="display:none; max-width: 650px;">
       <div class="modal-header">
         <h3 id="mAppFormName">결재 기안문</h3>
@@ -219,7 +214,7 @@
       <div class="modal-body">
 
         <div class="flow-stepper" id="mAppStepper">
-          <!-- Flow visual representation -->
+          <!-- 결재 흐름 시각화 -->
         </div>
 
         <div style="background-color: var(--bg-tertiary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem; margin-bottom: 1rem;">
@@ -232,12 +227,12 @@
           </div>
         </div>
 
-        <!-- Approval rejection reason box -->
+        <!-- 반려 사유 박스 -->
         <div id="mAppRejectBox" style="display:none; background-color: rgba(248,113,113,0.1); border-left:4px solid var(--color-danger); padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1rem;">
           <strong>반려 사유:</strong> <span id="mAppRejectReason" style="color:var(--text-primary);">이유...</span>
         </div>
 
-        <!-- Approval comments or actions box -->
+        <!-- 결재 코멘트/액션 박스 -->
         <div id="mAppActionBox" style="display:none; border-top:1px solid var(--border-color); padding-top: 1rem;">
           <div class="form-group">
             <label class="form-label" for="appActionComment">의견 또는 반려 사유 (반려 시 필수 입력)</label>
@@ -255,7 +250,7 @@
       </div>
     </div>
 
-    <!-- Reference (CC) Picker Modal - org-chart style -->
+    <!-- 참조인(CC) 선택 모달 - 조직도 스타일 -->
     <div class="modal-content" id="modal-ref-picker" style="display:none; max-width: 720px;">
       <div class="modal-header">
         <h3>참조 대상 선택</h3>
@@ -266,7 +261,7 @@
         <div class="org-container" style="height: 380px;">
           <div class="org-tree">
             <ul id="refDeptTree" style="list-style:none;">
-              <!-- Rendered by JS -->
+              <!-- JS로 렌더링됨 -->
             </ul>
           </div>
           <div class="org-members">
@@ -281,7 +276,7 @@
                   </tr>
                 </thead>
                 <tbody id="refMemberTableBody">
-                  <!-- Rendered by JS -->
+                  <!-- JS로 렌더링됨 -->
                 </tbody>
               </table>
             </div>
@@ -296,7 +291,7 @@
 
   </div>
 
-  <!-- Toast Notifications Container -->
+  <!-- 토스트 알림 컨테이너 -->
   <div id="toast-container" class="toast-container"></div>
 
   

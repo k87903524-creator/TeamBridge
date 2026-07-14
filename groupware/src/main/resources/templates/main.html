@@ -81,7 +81,7 @@
           <li class="sidebar-group-label">근태관리</li>
           <li class="sidebar-item sub" id="menu-attendance"><a href="attendance.html"><i class="fa-solid fa-clock"></i> 출결 현황</a></li>
 
-          <li class="sidebar-item" id="menu-mypage"><a href="mypage.html"><i class="fa-solid fa-user-gear"></i> 마이페이지</a></li>
+          <li class="sidebar-item" id="menu-mypage"><a th:href="@{/mypage}"><i class="fa-solid fa-user-gear"></i> 마이페이지</a></li>
 
           <!-- 관리자 전용 메뉴 - 기본 숨김, 로그인 사용자가 admin이면 JS가 보여준다 -->
           <li class="sidebar-group-label" id="adminGroupLabel" style="display: none;">관리자</li>

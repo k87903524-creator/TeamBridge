@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="light">
+<html lang="ko" data-theme="light" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,8 +41,8 @@
         <div class="user-dropdown" onclick="navigateTo('mypage')">
           <div class="user-avatar" id="headerAvatar">홍</div>
           <div class="user-details">
-            <span class="user-name-text" id="headerName">홍길동</span>
-            <span class="user-role-text" id="headerDept">개발팀 사원</span>
+            <span class="user-name-text" id="headerName" th:text="${employee.employeeName}">홍길동</span>
+            <span class="user-role-text" id="headerDept" th:text="${employee.deptName} + ' ' + ${employee.positionName}">개발팀 사원</span>
           </div>
         </div>
         <button class="icon-btn" onclick="doLogout()" title="로그아웃" style="color: var(--color-danger); border-color: rgba(248,113,113,0.2);">
@@ -98,12 +98,14 @@
                 <i class="fa-solid fa-camera"></i> 프로필 사진 변경
               </button>
               <input type="file" id="myPhotoInput" accept="image/*" style="display:none;" onchange="handleProfilePhotoSelect(this)">
-              <h2 id="myName" style="margin-top: 0.75rem;">홍길동</h2>
-              <p style="color: var(--text-secondary); font-size: 0.85rem;" id="myDeptPosition">개발팀 사원</p>
+              <h2 id="myName" style="margin-top: 0.75rem;" 
+			  th:text="${employee.employeeName}">홍길동</h2>
+              <p style="color: var(--text-secondary); font-size: 0.85rem;" id="myDeptPosition"
+			  ht:text="${employee.deptName} + '' + ${employee.postionName}">개발팀 사원</p>
               <div style="margin-top: 1.5rem; text-align: left; font-size: 0.85rem;" class="commute-info-box">
-                <div class="commute-row"><span>사번:</span><strong id="myId">20260601</strong></div>
-                <div class="commute-row"><span>입사일:</span><strong id="myJoin">2026-06-01</strong></div>
-                <div class="commute-row"><span>권한 수준:</span><strong id="myRole">일반 임직원</strong></div>
+                <div class="commute-row"><span>사번:</span><strong id="myId" th:text="${employee.employeeNo}">20260601</strong></div>
+                <div class="commute-row"><span>입사일:</span><strong id="myJoin" th:text="${employee.hireDate}">2026-06-01</strong></div>
+                <div class="commute-row"><span>권한 수준:</span><strong id="myRole" th:text="${employee.roleText}">일반 임직원</strong></div>
               </div>
             </div>
           </div>
@@ -115,12 +117,12 @@
               <form onsubmit="saveMyInfo(event)">
                 <div class="form-group">
                   <label class="form-label" for="myPhone">연락처 (전화번호)</label>
-                  <input type="text" id="myPhone" class="form-control" required value="010-1234-5678">
+                  <input type="text" id="myPhone" class="form-control" required th:value="${employee.employeePhone}">
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="myEmail">이메일</label>
-                  <input type="email" id="myEmail" class="form-control" required value="hong@corporation.com">
+                  <input type="email" id="myEmail" class="form-control" required th:value="${employee.employeeEmail}">
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">정보 저장</button>
@@ -153,8 +155,5 @@
 
   <!-- 토스트 알림 컨테이너 -->
   <div id="toast-container" class="toast-container"></div>
-
-  <script src="js/common.js"></script>
-  <script src="js/mypage.js"></script>
 </body>
 </html>

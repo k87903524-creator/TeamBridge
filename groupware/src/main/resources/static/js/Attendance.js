@@ -40,10 +40,9 @@ async function commute() {
         if (result.success) {
             // 성공 시 서버가 준 nextStatus로 버튼 UI 갱신
             updateButtonUI(result.nextStatus);
-			updateAttendanceDisplay(result);
-            showToast(result.message, 'success'); // 기존 토스트 함수 유지
-        } else {
-            alert(result.message);
+         updateAttendanceDisplay(result);
+		 const message=action === 'checkIn' ? '출근처리되었습니다':'퇴근처리되었습니다.';
+           showToast(message, 'success'); // 기존 토스트 함수 유지
         }
     } catch (error) {
         console.error('통신 오류:', error);

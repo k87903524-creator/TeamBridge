@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인페이지 미니 날씨 위젯</title>
+</head>
+<body>
+
+    <th:block th:fragment="weatherWidget">
     <style>
         /* ----------------------------------------------------
            [미니 날씨 위젯 스타일] - 메인페이지 어디든 배치 가능
@@ -81,8 +85,6 @@
             gap: 4px;
         }
     </style>
-</head>
-<body>
 
     <!-- [HTML] 메인페이지 레이아웃 원하는 위치에 삽입하세요 -->
     <div class="weather-widget-card">
@@ -175,5 +177,6 @@
             }
         });
     </script>
+    </th:block>
 </body>
 </html>

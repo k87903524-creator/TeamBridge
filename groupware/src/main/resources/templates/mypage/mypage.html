@@ -25,57 +25,12 @@
        헤더/사이드바는 fragments/layout.html 조각을 th:replace로 가져다 씀
        ========================================== -->
 	<div class="app-wrapper" id="appWrapper">
-<<<<<<< HEAD
 
 		<!-- 상단 헤더 - 공통 조각(fragments/layout.html) 재사용 -->
 		<header th:replace="~{fragments/layout :: header}"></header>
 
 		<!-- 메인 내비게이션 영역 -->
 		<div class="main-body" id="mainBody">
-=======
-
-		<!-- 상단 헤더 - 공통 조각(fragments/layout.html) 재사용 -->
-		<header th:replace="~{fragments/layout :: header}"></header>
-
-		<!-- 메인 내비게이션 영역 -->
-		<div class="main-body" id="mainBody">
-
-			<!-- 좌측 사이드바 - 공통 조각(fragments/layout.html) 재사용 -->
-			<aside th:replace="~{fragments/layout :: sidebar}"></aside>
-
-			<!-- 중앙 동적 화면 콘텐츠 영역 -->
-			<main class="view-content">
-
-				<!-- ==========================================
-  <div class="app-wrapper" id="appWrapper">
-
-     상단 헤더 -->
-    <header class="header">
-      <div class="header-left">
-        <a href="main.html" class="logo" style="text-decoration:none;">
-          <div class="logo-box"><i class="fa-solid fa-cubes"></i></div>
-          <span style="margin-left: 0.5rem;">GROUPWARE</span>
-        </a>
-      </div>
-
-      <div class="header-right">
-        <button class="icon-btn" onclick="navigateTo('chat')" title="실시간 채팅">
-          <i class="fa-solid fa-comment-dots"></i>
-          <span class="badge" id="headerChatBadge">0</span>
-        </button>
-        <div class="user-dropdown" onclick="navigateTo('mypage')">
-          <div class="user-avatar" id="headerAvatar">홍</div>
-          <div class="user-details">
-            <span class="user-name-text" id="headerName" th:text="${employee.employeeName}">홍길동</span>
-            <span class="user-role-text" id="headerDept" th:text="${employee.deptName} + ' ' + ${employee.positionName}">개발팀 사원</span>
-          </div>
-        </div>
-        <button class="icon-btn" onclick="doLogout()" title="로그아웃" style="color: var(--color-danger); border-color: rgba(248,113,113,0.2);">
-          <i class="fa-solid fa-right-from-bracket"></i>
-        </button>
-      </div>
-    </header>
->>>>>>> main
 
 			<!-- 좌측 사이드바 - 공통 조각(fragments/layout.html) 재사용 -->
 			<aside th:replace="~{fragments/layout :: sidebar}"></aside>

@@ -19,9 +19,7 @@ public interface EmployeeMapper {
 	// @Param - xml에서 #{employeeId} 사용하여 붙임
 	EmployeeDTO findMyPageInfo(@Param("employeeId") int employeeId);
 
-<<<<<<< HEAD
-=======
-	
+
 	
 	
 	
@@ -38,7 +36,7 @@ public interface EmployeeMapper {
 	
 	
 	
->>>>>>> main
+
 	// 마이페이지 비밀번호 변경
 	// newPassword는 Service에서 이미 BCrypt로 해싱된 값 - 여기선 그대로 저장만 함
 	int updatePassword(@Param("employeeId") int employeeId, @Param("newPassword") String newPassword);

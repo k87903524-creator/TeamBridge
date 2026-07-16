@@ -1,9 +1,12 @@
 package com.groupware.mapper;
 
 import java.time.LocalDate;
-import com.groupware.dto.AttendanceDTO;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import com.groupware.dto.AttendanceDTO;
 
 @Mapper
 public interface AttendanceMapper {
@@ -21,4 +24,7 @@ public interface AttendanceMapper {
     void updateCheckOut(@Param("employeeId") int employeeId, 
                         @Param("today") LocalDate today, 
                         @Param("checkOutTime") String checkOutTime);
+    
+    // 관리자 : 출결 관리
+    List<AttendanceDTO> selectAttendanceByDate(@Param("data") LocalDate date);
 }

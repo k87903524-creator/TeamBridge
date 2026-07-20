@@ -1,5 +1,6 @@
 package com.groupware.mapper;
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -22,6 +23,10 @@ public interface EmployeeMapper {
 	// 조직도 왼쪽 트리에 표시할 모든 부서를 조회한다.
 	List<DepartmentDTO> findDepartments();
 
+	// 전자결재 결재선 후보 조회 - 특정 직급 서열(POSITION_RANK: 1=부서장, 2=팀장)의
+	// ACTIVE 직원 전체 (부서 제한 없음 - 기안자가 회사 전체 팀장/부서장 중에서 고름)
+	List<EmployeeDTO> findByPositionRank(@Param("positionRank") int positionRank);
+
 	// 부서 필터에 맞는 ACTIVE 직원만 조직도 표에 표시한다. deptId가 null 이면 전체다.
 	List<EmployeeDTO> findActiveEmployeesByDepartment(@Param("deptId") Integer deptId);
 
@@ -35,6 +40,10 @@ public interface EmployeeMapper {
 	// 마이페이지 전화번호/이메일/프로필 사진 수정
 	int updateContact(@Param("employeeId") int employeeId, @Param("employeePhone") String employeePhone,
 			@Param("employeeEmail") String employeeEmail, @Param("profileImg") String profileImg);
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 	// 관리자: 계정 목록 조회 - keyword는 이름 검색어(없으면 전체)
 	List<EmployeeDTO> findAll(@Param("keyword") String keyword);
@@ -51,4 +60,5 @@ public interface EmployeeMapper {
 	// 관리자: 신규 등록 시 사번 채번용 - 해당 연도(year, 4자리) + 순번(3자리) 형식 중
 	// 이미 존재하는 것 중 가장 큰 값을 조회 (없으면 null). "___"는 순번 3자리 자리표시.
 	String findMaxEmployeeNoByYear(@Param("year") String year);
+
 }

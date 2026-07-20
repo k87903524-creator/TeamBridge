@@ -2,8 +2,6 @@ package com.groupware.mapper;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
-
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -27,6 +25,17 @@ public interface AttendanceMapper {
 	// 이번에 추가할 월별 조회 메서드 선언
 	List<AttendanceDTO> selectAttendanceByPeriod(@Param("employeeId") int employeeId,
 			@Param("startDate") String startDate, @Param("endDate") String endDate);
+    
+    // 출근 기록 삽입
+    void insertCheckIn(@Param("employeeId") int employeeId, 
+                       @Param("today") LocalDate today, 
+                       @Param("checkInTime") String checkInTime, 
+                       @Param("status") String status);
+    
+    // 퇴근 시간 업데이트 - 수정해야됨
+    void updateCheckOut(@Param("employeeId") int employeeId, 
+                        @Param("today") LocalDate today, 
+                        @Param("checkOutTime") String checkOutTime);
     
     // 관리자 : 출결 관리
     List<AttendanceDTO> selectAttendanceByDate(@Param("data") LocalDate date);

@@ -41,7 +41,6 @@ public interface EmployeeMapper {
 	int updateContact(@Param("employeeId") int employeeId, @Param("employeePhone") String employeePhone,
 			@Param("employeeEmail") String employeeEmail, @Param("profileImg") String profileImg);
 
-
 	// 관리자: 계정 목록 조회 - keyword는 이름 검색어(없으면 전체)
 	List<EmployeeDTO> findAll(@Param("keyword") String keyword);
 

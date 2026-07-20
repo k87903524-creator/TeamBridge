@@ -8,6 +8,7 @@ build/
 !**/src/test/**/build/
 uploads/
 .DS_Store
+.gitignore
 
 ### STS ###
 .apt_generated

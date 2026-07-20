@@ -82,7 +82,7 @@ public class EmployeeService {
 		}
 		employeeMapper.updateContact(employeeId, employeePhone, employeeEmail, storedName);
 	}
-	
+
 	// 파일을 UUID 이름으로 저장하고, DB에 넣을 "저장된 파일명"만 반환한다.
 	// ArchiveService.saveArchiveFile()과 같은 방식이지만, 여기선 전체 경로가 아니라
 	// 파일명만 리턴한다 - 프로필 사진은 정적 리소스로 직접 서빙할 거라 URL 조립에 파일명만 필요하기 때문(EmployeeDTO.profileImg 주석 참고)
